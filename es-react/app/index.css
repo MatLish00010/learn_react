@@ -29,8 +29,15 @@ body {
   padding: 1rem;
   transition: 0.3s color;
   font-weight: bolder;
+  font-size: 1.2rem;
 }
 
 .nav__btn:hover {
   color: #ff4d96;
+  outline: 0.2rem solid #ff4d96;
+}
+
+.nav__btn:focus {
+  color: #ff4d96;
+  outline: 0.2rem solid #ff4d96;
 }
