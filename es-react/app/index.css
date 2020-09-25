@@ -34,10 +34,4 @@ body {
 
 .nav__btn:hover {
   color: #ff4d96;
-  outline: 0.2rem solid #ff4d96;
-}
-
-.nav__btn:focus {
-  color: #ff4d96;
-  outline: 0.2rem solid #ff4d96;
 }
