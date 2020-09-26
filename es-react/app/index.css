@@ -1,37 +1,102 @@
-html, bode, #app {
-  margin: 0;
-  width: 100%;
-  height: 100%;
+html, body, #app {
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
 
 body {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+}
+
+ul {
+    list-style-type: none;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
 }
 
 
 .nav {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav__btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 1rem;
-  transition: 0.3s color;
-  font-weight: bolder;
-  font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    transition: 0.3s color;
+    font-weight: bolder;
+    font-size: 1.2rem;
 }
 
 .nav__btn:hover {
-  color: #ff4d96;
+    color: #ff4d96;
+}
+
+
+.repos__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.repos__item {
+    background: rgba(0,0,0,0.08);
+    border-radius: 0.1875rem;
+    margin: 0.625rem;
+    width: 19.625rem;
+    padding: 1.25rem;
+}
+
+.repos__item a {
+    text-decoration: none;
+}
+
+.repos__item-title {
+    font-size: 2.15rem;
+    font-weight: 300;
+    margin: 1.4rem;
+    text-align: center;
+}
+
+.repos__avatar {
+    width: 9.375rem;
+    height: 9.375rem;
+    border-radius: 0.1875rem;
+    margin: 0 auto;
+    display: block;
+}
+
+.repos__item-link {
+    color: rgb(187, 46, 31);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card__list {
+    margin: 1.25rem 0;
+    font-size: 1.25rem;
+    padding: 0;
+}
+
+.card__item {
+    display: flex;
+    align-items: center;
+    margin: 0.625rem 0.625rem 0.625rem 0;
+}
+
+.card__list svg {
+    margin-right: 0.625rem;
+}
+
+.card__list a {
+    font-weight: 500;
+    color: inherit;
 }
