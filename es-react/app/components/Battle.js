@@ -1,8 +1,10 @@
 import React from 'react'
 import {FaUserFriends, FaFighterJet, FaTrophy} from "react-icons/all";
+import PropTypes from 'prop-types'
 
 
-function Instructions () {
+
+function Instructions() {
     return (
         <div className='instruction__container'>
             <h1 className='instruction__header'>
@@ -32,11 +34,69 @@ function Instructions () {
     )
 }
 
+class PlayerInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+        }
+
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleSubmit (event) {
+        event.preventDefault()
+        this.props.onSubmit(this.state.username)
+    }
+
+    handleChange(event) {
+        this.setState({
+            username: event.target.value
+        })
+    }
+
+    render() {
+        return (
+            <form className='battle__form' onSubmit={this.handleSubmit}>
+                <label htmlFor='username' className='battle__form-label'>
+                    {this.props.label}
+                </label>
+                <div className='battle__form-content'>
+                    <input
+                    type='text'
+                    id='username'
+                    className='battle__form-input'
+                    placeholder='github username'
+                    autoComplete='off'
+                    value={this.state.username}
+                    onChange={this.handleChange}
+                    />
+                </div>
+                <button
+                className='battle__form-btn'
+                type='submit'
+                disabled={!this.state.username}
+                >
+                    Submit
+                </button>
+            </form>
+        )
+    }
+}
+
+PlayerInput.protoTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    label: PropTypes.string.isRequired
+}
+
 export default class Battle extends React.Component {
     render() {
         return (
             <React.Fragment>
                 <Instructions/>
+
+                <PlayerInput label="Label!" onSubmit={(value)=>  console.log('value!!', value)}/>
             </React.Fragment>
         )
     }
