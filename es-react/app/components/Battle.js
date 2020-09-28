@@ -1,6 +1,7 @@
 import React from 'react'
 import {FaUserFriends, FaFighterJet, FaTrophy, FaTimesCircle} from "react-icons/all";
 import PropTypes from 'prop-types'
+import Results from "./Results";
 
 
 function Instructions() {
@@ -121,7 +122,8 @@ export default class Battle extends React.Component {
 
         this.state = {
             playerOne: null,
-            playerTwo: null
+            playerTwo: null,
+            battle: false
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -141,7 +143,11 @@ export default class Battle extends React.Component {
     }
 
     render() {
-        const {playerOne, playerTwo} = this.state
+        const {playerOne, playerTwo, battle} = this.state
+        if (battle === true) {
+            return <Results playerOne={playerOne} playerTwo={playerTwo}/>
+        }
+
         return (
             <React.Fragment>
                 <Instructions/>
@@ -156,16 +162,26 @@ export default class Battle extends React.Component {
                                 label='Player One'
                                 onSubmit={(player) => this.handleSubmit('playerOne', player)}
                             />
-                            : <PlayerPreview label={'Player one'} onReset={() => (this.handleReset('playerOne'))} username={playerOne}/>
+                            : <PlayerPreview label={'Player one'} onReset={() => (this.handleReset('playerOne'))}
+                                             username={playerOne}/>
                         }
                         {playerTwo === null
                             ? <PlayerInput
                                 label='Player Two'
                                 onSubmit={(player) => this.handleSubmit('playerTwo', player)}
                             />
-                            : <PlayerPreview label={'Player two'} onReset={() => (this.handleReset('playerTwo'))} username={playerTwo}/>
+                            : <PlayerPreview label={'Player two'} onReset={() => (this.handleReset('playerTwo'))}
+                                             username={playerTwo}/>
                         }
                     </div>
+
+                    {playerOne && playerTwo && (
+                        <button className='result__btn'
+                                onClick={() => this.setState({battle: true})}
+                        >
+
+                        </button>
+                    )}
                 </div>
             </React.Fragment>
         )
