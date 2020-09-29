@@ -40,7 +40,6 @@ class PlayerInput extends React.Component {
     }
     handleSubmit(event) {
         event.preventDefault()
-
         this.props.onSubmit(this.state.username)
     }
     handleChange(event) {
@@ -52,6 +51,7 @@ class PlayerInput extends React.Component {
         return (
             <form className='column player' onSubmit={this.handleSubmit}>
                 <label htmlFor='username' className='player-label'>
+                    {console.log(this.props)}
                     {this.props.label}
                 </label>
                 <div className='row player-inputs'>
@@ -138,6 +138,7 @@ export default class Battle extends React.Component {
     }
     render() {
         const { playerOne, playerTwo, battle } = this.state
+        console.log(this.state)
 
         if (battle === true) {
             return <Results playerOne={playerOne} playerTwo={playerTwo} />
