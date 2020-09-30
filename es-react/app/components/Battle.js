@@ -1,9 +1,9 @@
 import React from 'react'
-import { FaUserFriends, FaFighterJet, FaTrophy, FaTimesCircle } from 'react-icons/fa'
+import {FaUserFriends, FaFighterJet, FaTrophy, FaTimesCircle} from 'react-icons/fa'
 import PropTypes from 'prop-types'
 import Results from './Results'
 
-function Instructions () {
+function Instructions() {
     return (
         <div className='instructions-container'>
             <h1 className='center-text header-lg'>
@@ -12,15 +12,15 @@ function Instructions () {
             <ol className='container-sm grid center-text battle-instructions'>
                 <li>
                     <h3 className='header-sm'>Enter two Github users</h3>
-                    <FaUserFriends className='bg-light' color='rgb(255, 191, 116)' size={140} />
+                    <FaUserFriends className='bg-light' color='rgb(255, 191, 116)' size={140}/>
                 </li>
                 <li>
                     <h3 className='header-sm'>Battle</h3>
-                    <FaFighterJet className='bg-light' color='#727272' size={140} />
+                    <FaFighterJet className='bg-light' color='#727272' size={140}/>
                 </li>
                 <li>
                     <h3 className='header-sm'>See the winners</h3>
-                    <FaTrophy className='bg-light' color='rgb(255, 215, 0)' size={140} />
+                    <FaTrophy className='bg-light' color='rgb(255, 215, 0)' size={140}/>
                 </li>
             </ol>
         </div>
@@ -38,20 +38,22 @@ class PlayerInput extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
+
     handleSubmit(event) {
         event.preventDefault()
         this.props.onSubmit(this.state.username)
     }
+
     handleChange(event) {
         this.setState({
             username: event.target.value
         })
     }
+
     render() {
         return (
             <form className='column player' onSubmit={this.handleSubmit}>
                 <label htmlFor='username' className='player-label'>
-                    {console.log(this.props)}
                     {this.props.label}
                 </label>
                 <div className='row player-inputs'>
@@ -82,7 +84,7 @@ PlayerInput.propTypes = {
     label: PropTypes.string.isRequired
 }
 
-function PlayerPreview ({ username, onReset, label }) {
+function PlayerPreview({username, onReset, label}) {
     return (
         <div className='column player'>
             <h3 className='player-label'>{label}</h3>
@@ -100,7 +102,7 @@ function PlayerPreview ({ username, onReset, label }) {
                     </a>
                 </div>
                 <button className='btn-clear flex-center' onClick={onReset}>
-                    <FaTimesCircle color='rgb(194, 57, 42)' size={26} />
+                    <FaTimesCircle color='rgb(194, 57, 42)' size={26}/>
                 </button>
             </div>
         </div>
@@ -126,27 +128,29 @@ export default class Battle extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleReset = this.handleReset.bind(this)
     }
+
     handleSubmit(id, player) {
         this.setState({
             [id]: player
         })
     }
+
     handleReset(id) {
         this.setState({
             [id]: null
         })
     }
+
     render() {
-        const { playerOne, playerTwo, battle } = this.state
-        console.log(this.state)
+        const {playerOne, playerTwo, battle} = this.state
 
         if (battle === true) {
-            return <Results playerOne={playerOne} playerTwo={playerTwo} />
+            return <Results playerOne={playerOne} playerTwo={playerTwo}/>
         }
 
         return (
             <React.Fragment>
-                <Instructions />
+                <Instructions/>
 
                 <div className='players-container'>
                     <h1 className='center-text header-lg'>Players</h1>
