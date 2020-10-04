@@ -6,7 +6,7 @@ import Card from './Card'
 import Loading from './Loading'
 import Tooltip from './Tooltip'
 
-function LangaugesNav({selected, onUpdateLanguage}) {
+function LanguagesNav({selected, onUpdateLanguage}) {
     const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python']
 
     return (
@@ -25,7 +25,7 @@ function LangaugesNav({selected, onUpdateLanguage}) {
     )
 }
 
-LangaugesNav.propTypes = {
+LanguagesNav.propTypes = {
     selected: PropTypes.string.isRequired,
     onUpdateLanguage: PropTypes.func.isRequired
 }
@@ -80,24 +80,16 @@ ReposGrid.propTypes = {
 }
 
 export default class Popular extends React.Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            selectedLanguage: 'All',
-            repos: {},
-            error: null,
-        }
-
-        this.updateLanguage = this.updateLanguage.bind(this)
-        this.isLoading = this.isLoading.bind(this)
+    state = {
+        selectedLanguage: 'All',
+        repos: {},
+        error: null,
     }
-
-    componentDidMount() {
+    componentDidMount = () => {
         this.updateLanguage(this.state.selectedLanguage)
     }
 
-    updateLanguage(selectedLanguage) {
+    updateLanguage = (selectedLanguage) => {
         this.setState({
             selectedLanguage,
             error: null,
@@ -123,7 +115,7 @@ export default class Popular extends React.Component {
         }
     }
 
-    isLoading() {
+    isLoading = () => {
         const {selectedLanguage, repos, error} = this.state
 
         return !repos[selectedLanguage] && error === null
@@ -134,7 +126,7 @@ export default class Popular extends React.Component {
 
         return (
             <React.Fragment>
-                <LangaugesNav
+                <LanguagesNav
                     selected={selectedLanguage}
                     onUpdateLanguage={this.updateLanguage}
                 />
