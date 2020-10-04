@@ -60,6 +60,7 @@ export default class Results extends React.Component {
     }
     componentDidMount () {
         const { playerOne, playerTwo } = queryString.parse(this.props.location.search)
+        console.log(this.props)
 
         battle([ playerOne, playerTwo ])
             .then((players) => {
