@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import Results from './Results'
 import {Link} from 'react-router-dom'
 
+
+
 function Instructions() {
     return (
         <div className='instructions-container'>
