@@ -1,15 +1,15 @@
 import React from 'react'
-import {ThemeConsumer} from "../contexts/theme";
+import {ThemeConsumer} from '../contexts/theme'
 import {NavLink} from 'react-router-dom'
 
 const activeStyle = {
-    color: 'rgb(187, 46 ,31)'
+    color: 'rgb(187, 46, 31)'
 }
 
-export default function Nav() {
+export default function Nav({toggleTheme}) {
     return (
         <ThemeConsumer>
-            {({theme, toggleTheme}) => (
+            {(theme) => (
                 <nav className='row space-between'>
                     <ul className='row nav'>
                         <li>
@@ -24,7 +24,6 @@ export default function Nav() {
                         <li>
                             <NavLink
                                 to='/battle'
-                                exact
                                 activeStyle={activeStyle}
                                 className='nav-link'>
                                 Battle
