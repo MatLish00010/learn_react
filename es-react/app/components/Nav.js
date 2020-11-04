@@ -28,6 +28,15 @@ export default function Nav({toggleTheme}) {
                         Battle
                     </NavLink>
                 </li>
+                <li>
+                    <NavLink
+                        to='/test'
+                        activeStyle={activeStyle}
+                        className='nav-link'
+                    >
+                        Test-page
+                    </NavLink>
+                </li>
             </ul>
             <button
                 style={{fontSize: 30}}
